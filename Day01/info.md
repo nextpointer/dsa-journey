@@ -88,3 +88,46 @@ public:
 
 * Time Complexity: O(n^2)
 * Space Complexity: O(1)
+
+## Given an array which consists of only 0, 1 and 2. Sort the array
+
+### (Dutch National Flag Sorting)/(Color Sorting)
+
+```
+class Solution{
+    public:
+    void DNFsort(vector<int>&arr)
+    {
+        int n=arr.size();
+        int low=0,mid=0,high=n-1;
+        while(mid<=high)
+        {
+            if(arr[mid]==0)
+            {
+                swap(arr[mid],arr[low]);
+                low++;
+                mid++;
+            }
+            else if(arr[mid]==1){
+                mid++;
+            }
+            else{
+                swap(arr[mid],arr[high]);
+                high--;
+            }
+        }
+    }
+
+    void printArray(vector<int>&arr)
+    {
+        for (int i = 0; i < arr.size(); i++)
+        {
+            cout<<arr[i]<<" ";
+        }
+      
+    }
+};
+```
+
+* Time Complexity ->O(N)
+* Space Complexity ->O(1)
