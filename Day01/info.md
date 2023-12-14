@@ -32,6 +32,9 @@ public:
 };
 ```
 
+* Time Complexity: O(n)
+* Space Complexity: O(1)
+
 ### Sum of Minimum and Maximum of the Array
 
 ```
@@ -56,7 +59,10 @@ class Solution{
 };
 ```
 
-Kth Smallest Element of an Array
+* Time Complexity: O(n)
+* Space Complexity: O(1)
+
+### Kth Smallest Element of an Array
 
 ```
 class Solution {
@@ -79,3 +85,6 @@ public:
     }
 };
 ```
+
+* Time Complexity: O(n^2)
+* Space Complexity: O(1)
