@@ -8,9 +8,6 @@ Array
 
 * Write a program to cyclically rotate an array by k times
 * Move all the negative elements to one side of the array
-* Find Largest sum contiguous Subarray
-* Minimise the maximum difference between heights
-* Minimum no. of Jumps to reach end of an array
 
 ## Code
 
@@ -39,5 +36,32 @@ class Solution{
 ```
 
 * Time Complexity-> O(n)
+* Space Complexity->O(1)
 
+### Move all the negative elements to one side of the array
+
+```
+class Solution{
+    public:
+    void moveNegetiveNumber(vector<int>&arr){
+        int n=arr.size();
+        int low=0,high=n-1;
+        while(low<high){
+            if(arr[low]>0 ||arr[low]==0){
+                swap(arr[low],arr[high]);
+                high--;
+            }
+            else if(arr[low]<0){
+                low++;
+            }
+        }
+    }
+     void printArray(vector<int>&arr){
+        for(int num:arr)
+            cout<<num<<" ";
+    }
+};
+```
+
+* Time Complexity-> O(n)
 * Space Complexity->O(1)
