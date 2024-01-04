@@ -7,8 +7,7 @@ Array
 ## Todays Goal
 
 * Minimum no. of Jumps to reach end of an array
-* find duplicate in an array of N+1 Integers
-* Merge 2 sorted arrays without using Extra space
+* Find element occuring once when all other are present thrice
 
 ## Code
 
@@ -48,11 +47,35 @@ public:
 * Time Complexity->O(n)
 * Space Complexity->O(1)
 
-
 ### Find element occuring once when all other are present thrice
 
 > #### Qs Link 👍: https://www.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1
 
 ```
+class Solution {
+public:
+    int singleElement(int arr[], int N) {
+        std::unordered_map<int, int> up;
 
+        // Count the frequency of each element in the array
+        for (int i = 0; i < N; ++i) {
+            up[arr[i]]++;
+        }
+
+        // Find the unique element with frequency 1
+        for (int i = 0; i < N; ++i) {
+            if (up[arr[i]] == 1)
+                return arr[i];
+        }
+
+        // If no unique element is found, you may want to handle this case appropriately.
+        // For example, you could throw an exception, return a specific value, or print an error message.
+        // Here, we return -1 as a placeholder for no unique element found.
+        return -1;
+    }
+};
 ```
+
+
+* Time Complexity->O(n)
+* Space Complexity->O(n)
