@@ -1,20 +1,6 @@
-## Date - [04-12-23]
+#include <bits/stdc++.h>
+using namespace std;
 
-## Topic Name
-
-Array
-
-## Todays Goal
-
-* Minimum no. of Jumps to reach end of an array
-* find duplicate in an array of N+1 Integers
-* Merge 2 sorted arrays without using Extra space
-
-## Code
-
-### Minimum no. of Jumps to reach end of an array
-
-```
 class Solution
 {
 public:
@@ -43,8 +29,12 @@ public:
         return -1;
     }
 };
-```
 
-
-* Time Complexity->O(n)
-* Space Complexity->O(1)
+int main(int argc, char const *argv[])
+{
+    vector<int> arr = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
+    Solution obj;
+    int jumpNo = obj.minJump(arr);
+    cout << "Minimum number of jumps is " << jumpNo << endl;
+    return 0;
+}
