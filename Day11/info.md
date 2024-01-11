@@ -6,12 +6,9 @@ Recursion
 
 ## Todays Goal
 
-* sum of n numbers
-* power of two
+* Power of two
 * Factorial of numbers
-* Reverse a number
-* Check if a string palindrome or not
-* Fibonacci Number printing
+* Reverse a Array
 
 ## Code
 
@@ -26,7 +23,7 @@ class Solution
         // base case
         if(n==0)
             return 1;
-    
+  
         // recursive case
         return n*factorial(n-1);
     }
@@ -45,10 +42,27 @@ class Solution
         // base case
         if(n==0)
             return 1;
-      
+  
         // recursive case
         return 2*power(n-1);
     }
   
+};
+```
+
+#### Reverse an Array
+
+```
+class Solution
+{
+public:
+    void reverseArray(vector<int>& arr, int left, int right)
+    {
+        if (left < right)
+        {
+            swap(arr[left], arr[right]);
+            reverseArray(arr, left + 1, right - 1);
+        }
+    }
 };
 ```

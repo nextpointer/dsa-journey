@@ -19,7 +19,6 @@ class Solution
 
 
 
-
 int main(int argc, char const *argv[])
 {
     cout<<"Enter your Number"<<endl;
