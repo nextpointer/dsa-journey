@@ -34,7 +34,6 @@ public:
 * Time Complexity: O(n^2)
 * Space Complexity:O(1)
 
-
 #### Quick Sort
 
 ```
@@ -98,3 +97,36 @@ public:
 
 * Time Complexity:O(nlogn)
 * Space Complexity:O(n)
+
+#### Selection Sort
+
+```
+class Sorting
+{
+public:
+    // Function to perform Selection Sort on a vector of integers
+    void selectionSort(vector<int>& arr){
+        // Loop through each element in the array
+        for (int i = 0; i < arr.size(); i++)
+        {
+            // Assume the current index is the minimum
+            int min = i;
+
+            // Iterate through the unsorted part of the array to find the minimum element
+            for (int j = i + 1; j < arr.size(); j++)
+            {
+                // If an element is smaller than the current minimum, update the minimum
+                if(arr[min] > arr[j])
+                    min = j;
+            }
+
+            // Swap the current element with the minimum element found
+            swap(arr[i], arr[min]);
+        }
+    }
+};
+```
+
+Time Complexity : O(n^2)
+
+Space Complexity : O(1)
