@@ -1,4 +1,4 @@
-Date - [11-01-24]
+## Date - [11-01-24]
 
 ## Topic Name
 
@@ -89,7 +89,7 @@ class Solution{
 
         // recursive case 
         return NthFibonacii(n-1)+NthFibonacii(n-2);
-      
+    
     }
 };
 ```
