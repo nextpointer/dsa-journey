@@ -1,43 +1,6 @@
-## Date - [15-01-24]
+#include <bits/stdc++.h>
+using namespace std;
 
-## Topic Name
-
-Sorting
-
-## Todays Goal
-
-* Insertion sort
-* Selection Sort
-* Quick Sort
-
-## Code
-
-#### Insertion Sort
-
-```
-class Sorting {
-public:
-    void insertionSort(vector<int>& arr) {
-        for (int i = 0; i < arr.size(); i++) {
-            int j = i;
-            int temp = arr[i];
-            while (j > 0 && arr[j - 1] > temp) {
-                arr[j] = arr[j - 1];
-                j--;
-            }
-            arr[j] = temp;
-        }
-    }
-};
-```
-
-* Time Complexity: O(n^2)
-* Space Complexity:O(1)
-
-
-#### Quick Sort
-
-```
 class Sorting
 {
 public:
@@ -94,7 +57,16 @@ public:
         return pivotIndex;
     }
 };
-```
 
-* Time Complexity:O(nlogn)
-* Space Complexity:O(n)
+int main(int argc, char const *argv[])
+{
+    vector<int> arr = {5, 4, 9, 2, 1};
+    Sorting obj;
+    obj.QuickSort(arr, 0, arr.size() - 1);
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
