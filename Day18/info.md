@@ -6,10 +6,7 @@ Linked List
 
 ## Todays Goal
 
-* Insertion
-* Deletation
-* Update
-* Reverse
+* Singly Linked List
 
 ## Code
 
@@ -54,6 +51,74 @@ void InsertAtTail(Node* &Tail,Node* &head,int data){
   
     // Traversing the node
     traverse(head);
+
+}
+```
+
+### Insert at Any position
+
+```
+void InsertAtAnyPosition(int position, Node *&head, Node *&Tail, int data)
+{
+    // Finding the length of the linked list
+    int count = 0;
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        count++;
+        temp = temp->next;
+    }
+    // Checking user input valid or not
+    if (count < position)
+    {
+        cout << "User input is out of bound" << endl;
+    }
+
+    // Insertion Operation
+    // There are three possibilities
+    // 1.position is 0th
+    // 2.Position is (n-1)th
+    // 3.Position is middle of that
+
+    Node *newNode = new Node(data);
+    Node *pointer = head;
+
+    if (position == 0)
+    {
+        newNode->next = head;
+        head = newNode;
+        cout << "Node added successfully in the head" << endl;
+
+        // Traversing the node
+        traverse(head);
+    }
+    else if (position == count)
+    {
+        Tail->next = newNode;
+        Tail = newNode;
+        newNode->next = NULL;
+
+        cout << "Node added successfully in the Tail" << endl;
+
+        // Traversing the node
+        traverse(head);
+    }
+    else{
+        int flag=1;
+        while(flag<position)
+        {
+            pointer=pointer->next;
+            flag++;
+        }
+        newNode->next=pointer->next;
+        pointer->next=newNode;
+
+
+        cout<<"Node added successfully at "<<position<<"th position"<<endl;
+        // Traversing the node
+        traverse(head);
+
+    }
 
 }
 ```
