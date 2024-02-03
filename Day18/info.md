@@ -40,3 +40,20 @@ void InsertAtHead(Node *& head,int data){
     traverse(head);
 }
 ```
+
+### Insert at Tail
+
+```
+void InsertAtTail(Node* &Tail,Node* &head,int data){
+    Node* newNode = new Node(data);
+    Tail->next=newNode;
+    Tail=newNode;
+    newNode->next=NULL;
+
+    cout<<"Node added successfully in the Tail"<<endl;
+  
+    // Traversing the node
+    traverse(head);
+
+}
+```

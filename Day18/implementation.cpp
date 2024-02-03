@@ -31,6 +31,19 @@ void InsertAtHead(Node *& head,int data){
     traverse(head);
 }
 
+void InsertAtTail(Node* &Tail,Node* &head,int data){
+    Node* newNode = new Node(data);
+    Tail->next=newNode;
+    Tail=newNode;
+    newNode->next=NULL;
+
+    cout<<"Node added successfully in the Tail"<<endl;
+    
+    // Traversing the node
+    traverse(head);
+
+}
+
 int main(int argc, char const *argv[])
 {
     Node* node1=new Node(5);
@@ -39,6 +52,12 @@ int main(int argc, char const *argv[])
 
     Node* head;
     head=node1;
+    // creating a tail
+    Node*Tail=node1;
+    // Insert a node in the tail
+    InsertAtTail(Tail,head,15);
+    InsertAtTail(Tail,head,69);
+
     // Insert a node in head
     // InsertAtHead(head,1);
     InsertAtHead(head,2);
