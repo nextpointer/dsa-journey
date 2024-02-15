@@ -7,10 +7,23 @@ public:
     int data;
     Node *next;
 
+    // Constructor
     Node(int data)
     {
         this->data = data;
         this->next = NULL;
+    }
+
+    // destructor
+    ~Node(){
+        int value=this->data;
+        if (this->next!=NULL)
+        {
+            delete next;
+            this->next=NULL;
+        }
+        
+        cout<<"memory is free for node with data "<<value<<endl;
     }
 };
 void traverse(Node *&head)
@@ -112,6 +125,45 @@ void InsertAtAnyPosition(int position, Node *&head, Node *&Tail, int data)
 
 }
 
+void DeleteAtAnyPosition(int position,Node*&head,Node*&tail){
+
+    int count = 0;
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        count++;
+        temp = temp->next;
+    }
+    // Checking user input valid or not
+    if (count < position)
+    {
+        cout << "User input is out of bound" << endl;
+    }
+
+     // Deletation Operation
+    // There are three possibilities
+    // 1.position is 0th
+    // 2.Position is (n-1)th
+    // 3.Position is middle of that
+
+    if (position=0)
+    {
+        Node* temp=head;
+        head=head->next;
+        delete temp;
+
+        cout<<position<<"th Node is deleted"<<endl;
+    }
+    
+
+
+
+
+
+    
+
+}
+
 int main(int argc, char const *argv[])
 {
     Node *node1 = new Node(5);
@@ -134,6 +186,7 @@ int main(int argc, char const *argv[])
     // Insert at any position
     // Position started at 0th position
     InsertAtAnyPosition(2, head, Tail, 52);
+    DeleteAtAnyPosition(0,head,Tail);
 
     return 0;
 }
