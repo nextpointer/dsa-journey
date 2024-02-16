@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "*.ejs": "html",
-        "charconv": "cpp"
+        "charconv": "cpp",
+        "bitset": "cpp",
+        "algorithm": "cpp"
     }
 }
