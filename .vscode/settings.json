@@ -3,6 +3,8 @@
         "*.ejs": "html",
         "charconv": "cpp",
         "bitset": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "iostream": "cpp",
+        "source_location": "cpp"
     }
 }
