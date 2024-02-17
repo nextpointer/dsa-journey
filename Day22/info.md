@@ -10,3 +10,5 @@ Understand about
 
 * Macros
 * Global variable
+* Inline functions
+* Default Arguments
