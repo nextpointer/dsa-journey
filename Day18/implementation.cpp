@@ -125,7 +125,7 @@ void InsertAtAnyPosition(int position, Node *&head, Node *&Tail, int data)
 
 }
 
-void DeleteAtAnyPosition(int position,Node*&head,Node*&tail){
+void DeleteAtAnyPosition(int position, Node *&head, Node *&tail){
 
     int count = 0;
     Node *temp = head;
@@ -135,34 +135,49 @@ void DeleteAtAnyPosition(int position,Node*&head,Node*&tail){
         temp = temp->next;
     }
     // Checking user input valid or not
-    if (count < position)
+    if (count <= position || position < 0)
     {
         cout << "User input is out of bound" << endl;
+        return;
     }
 
-     // Deletation Operation
+    // Deletation Operation
     // There are three possibilities
     // 1.position is 0th
     // 2.Position is (n-1)th
     // 3.Position is middle of that
 
-    if (position=0)
+    if (position == 0)
     {
         Node* temp=head;
         head=head->next;
+        temp->next=NULL;
         delete temp;
 
         cout<<position<<"th Node is deleted"<<endl;
+        traverse(head);
     }
-    
-
-
-
-
-
-    
-
+    else
+    {
+        Node* prev=NULL;
+        Node* curr=head;
+        count=0; // Resetting count to 0 since we need to start counting from the beginning
+        while (count < position)
+        {
+            prev=curr;
+            curr=curr->next;
+            count++;
+        }
+        prev->next=curr->next;
+        if (curr == tail) // Update tail if the last node is deleted
+            tail = prev;
+        curr->next=NULL;
+        delete curr;
+        cout<<position<<"th Node is deleted"<<endl;
+        traverse(head);
+    }
 }
+
 
 int main(int argc, char const *argv[])
 {
@@ -186,7 +201,8 @@ int main(int argc, char const *argv[])
     // Insert at any position
     // Position started at 0th position
     InsertAtAnyPosition(2, head, Tail, 52);
-    DeleteAtAnyPosition(0,head,Tail);
+    DeleteAtAnyPosition(3,head,Tail);
+    cout<<Tail->data<<endl;
 
     return 0;
 }
