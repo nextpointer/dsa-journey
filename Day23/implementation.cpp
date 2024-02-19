@@ -51,7 +51,14 @@ void insertAtHead(Node* &head,int data)
     traverse(head);
 }
 
-
+void insertAtTail(Node* &head,Node* &tail,int data)
+{
+    Node* newNode=new Node(data);
+    tail->next=newNode;
+    newNode->prev=tail;
+    tail=newNode;
+    traverse(head);
+}
 
 
 int main(int argc, char const *argv[])
