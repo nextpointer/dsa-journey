@@ -72,7 +72,7 @@ int main(int argc, char const *argv[])
     insertAtHead(head,12);
 
     // insert at Tail
-    // insertAtTail(head,tail,88);
+    insertAtTail(head,tail,88);
 
 
 
