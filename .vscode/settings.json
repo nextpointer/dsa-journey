@@ -5,6 +5,9 @@
         "bitset": "cpp",
         "algorithm": "cpp",
         "iostream": "cpp",
-        "source_location": "cpp"
+        "source_location": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
     }
 }
