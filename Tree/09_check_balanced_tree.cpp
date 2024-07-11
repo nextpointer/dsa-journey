@@ -18,20 +18,30 @@ struct Node
     }
 };
 
-// Class to handle tree traversal methods
-class Height
+class Solution
 {
 public:
-    // function for getting the tree height
-    int GetTreeHeight(Node *root)
+    bool CheckBalancedTree(Node *root)
     {
-        if(root==NULL)
-            return 0;
-        // recursive case
- 
-        return 1+max(GetTreeHeight(root->left),GetTreeHeight(root->right));
+        return dfsHeight(root) != -1;
     }
 
+    int dfsHeight(Node *root)
+    {
+        if (root == NULL)
+            return 0;
+        int lh = dfsHeight(root->left);
+        if (lh == -1)
+            return -1;
+        int rh = dfsHeight(root->right);
+        if (rh == -1)
+            return -1;
+
+        if (abs(rh - lh) > 1)
+            return -1;
+
+        return 1 + max(lh, rh);
+    }
 };
 
 int main()
@@ -48,9 +58,9 @@ int main()
     root->right->left = new Node(6);
     root->right->right = new Node(7);
 
-    Height object;
-    int height = object.GetTreeHeight(root);
-    cout<<"The height of the tree is "<<height;
+    Solution object;
+    bool result = object.CheckBalancedTree(root);
+    cout << result << endl;
 
     return 0;
 }

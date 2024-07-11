@@ -1,1 +1,3 @@
 *.exe
+.vscode
+tempcoderunner.cpp
