@@ -1,58 +1,63 @@
-// Implement post order using 2 stack
-
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-// Definition of the structure for a tree node
-struct Node
-{
-    int data;    // Data stored in the node
-    Node *left;  // Pointer to the left child
-    Node *right; // Pointer to the right child
+// Tree Node
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
 
-    // Constructor to initialize the node with a value
-    Node(int value)
-    {
-        data = value;
-        left = right = NULL; // Initialize left and right children to NULL
+    Node(int val) {
+        data = val;
+        left = right = NULL;
     }
 };
 
-class Solution {
-public:
-    int maxPathSum(Node* root) {
-        int max = INT_MIN;
-        maxPathDown(root,max);
-        return max;
+// Function to check if two trees are identical
+bool areIdentical(Node* root1, Node* root2) {
+    // If both trees are empty, they are identical
+    if (root1 == NULL && root2 == NULL) {
+        return true;
     }
-private:
-    int maxPathDown(Node* root,int &maxi){
-        if(root==NULL) return 0;
-        int lh = max(0,maxPathDown(root->left,maxi));
-        int rh = max(0,maxPathDown(root->right,maxi));
-        maxi = max(maxi,root->data+lh+rh);
-        return max(lh,rh)+root->data;
 
+    // If one tree is empty and the other is not, they are not identical
+    if (root1 == NULL || root2 == NULL) {
+        return false;
     }
-};
 
-int main()
-{
-    // Create the root node of the binary tree
-    Node *root = new Node(1);
-    // Create the left and right children of the root
-    root->left = new Node(2);
-    root->right = new Node(3);
-    // Create the children of the node 2
-    root->left->left = new Node(4);
-    root->left->right = new Node(5);
-    // Create the children of the node 3
-    root->right->left = new Node(6);
-    root->right->right = new Node(7);
+    // Check if the data of both nodes is the same and recursively check for left and right subtrees
+    return (root1->data == root2->data &&
+            areIdentical(root1->left, root2->left) &&
+            areIdentical(root1->right, root2->right));
+}
 
-    Solution object;
-    int result = object.maxPathSum(root);
-    cout << result << endl;
+// Helper function to create a new Tree Node
+Node* newNode(int val) {
+    Node* temp = new Node(val);
+    return temp;
+}
+
+int main() {
+    // Create first tree
+    Node* root1 = newNode(1);
+    root1->left = newNode(2);
+    root1->right = newNode(3);
+    root1->left->left = newNode(4);
+    root1->left->right = newNode(5);
+
+    // Create second tree
+    Node* root2 = newNode(1);
+    root2->left = newNode(2);
+    root2->right = newNode(3);
+    root2->left->left = newNode(4);
+    root2->left->right = newNode(5);
+
+    // Check if the two trees are identical
+    if (areIdentical(root1, root2)) {
+        cout << "The two trees are identical." << endl;
+    } else {
+        cout << "The two trees are not identical." << endl;
+    }
 
     return 0;
 }

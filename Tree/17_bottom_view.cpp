@@ -15,7 +15,7 @@ struct Node{
 
 class Solution{
     public:
-    vector<int> topview(Node* root){
+    vector<int> bottomview(Node* root){
         vector<int> ans;
         if (root ==NULL) return ans;
         map<int,int>m;
@@ -64,7 +64,7 @@ int main(){
     root->right->right =new Node(7);
 
     Solution obj;
-    vector<int> resultView  = obj.topview(root);
+    vector<int> resultView  = obj.bottomview(root);
     obj.printList(resultView);
 
 
