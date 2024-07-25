@@ -56,7 +56,7 @@ public:
         while (!q.empty()) {
             Node* currentNode = q.front();
             q.pop();
-            result.push_back(currentNode->val);
+            result.push_back(currentNode->data);
         }
         
         return result;
