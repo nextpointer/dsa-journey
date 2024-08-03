@@ -2,7 +2,7 @@
 #include <stack>
 using namespace std;
 
-class Stack
+class Stacks
 {
     // Propeties
     // Building a stack class need the properties that is top,size and a array to store
@@ -12,7 +12,7 @@ class Stack
     int *arr;
 
     public:
-    Stack(int size)
+    Stacks(int size)
     {
         this->size = size;
         top = -1;
@@ -49,11 +49,12 @@ class Stack
         // returns the top element of the stack
         return arr[top];
     }
+    
 };
 
 int main(int argc, char const *argv[])
 {
-    Stack st(6);
+    Stacks st(6);
     st.push(1);
     st.push(2);
     st.push(3);
