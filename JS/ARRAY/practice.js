@@ -45,19 +45,28 @@
 
 
 // create a reduce function
-let arr = [5,44,57,2,774];
-function callback(acc,cur){
-    return acc+cur
-}
+// let arr = [5,44,57,2,774];
+// function callback(acc,cur){
+//     return acc+cur
+// }
 
-let init = 1000;
-function reduce(arr,callback,init){
-    arr.forEach(element => {
-        let ret = callback(init,element);
-        init = ret;
-    });
-    return init;
-}
+// let init = 1000;
+// function reduce(arr,callback,init){
+//     arr.forEach(element => {
+//         let ret = callback(init,element);
+//         init = ret;
+//     });
+//     return init;
+// }
 
-let ans  = reduce(arr,callback,init)
-console.log(ans);
+// let ans  = reduce(arr,callback,init)
+// console.log(ans);
+
+
+// spread op 
+arr = [5,44,57,2,774]
+let newArray = [1,...arr,2]
+console.log(newArray);
+
+console.log(arr);
+
