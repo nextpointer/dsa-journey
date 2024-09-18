@@ -20,6 +20,7 @@ public:
         delete ptr; // Delete the allocated memory
     }
 
+
     // Overloading the dereference operator to use it like a pointer
     int &operator *() {
         return *ptr; // Return a reference to the integer pointed to by ptr
