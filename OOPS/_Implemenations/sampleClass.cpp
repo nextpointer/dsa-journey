@@ -4,11 +4,13 @@ using namespace std;
 
 
 class Student{
+    public:
+    string details = "The all information is hidden";
     // properties
     private:
-    int ID;
-    string name;
-    int roll;
+    int ID=01;
+    string name = "Surajit";
+    int roll =001;
 
     // methods
     public:
